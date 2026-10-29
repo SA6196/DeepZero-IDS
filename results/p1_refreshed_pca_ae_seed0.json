@@ -1,0 +1,98 @@
+[
+  {
+    "family": "DoS/DDoS",
+    "model": "PCA",
+    "auroc": 0.969605,
+    "fpr_at_95_tpr": 0.181738,
+    "tpr_at_1_fpr": 0.749796,
+    "runtime": 0.63
+  },
+  {
+    "family": "DoS/DDoS",
+    "model": "Plain AE",
+    "auroc": 0.988027,
+    "fpr_at_95_tpr": 0.064733,
+    "tpr_at_1_fpr": 0.84446,
+    "runtime": 95.42
+  },
+  {
+    "family": "PortScan",
+    "model": "PCA",
+    "auroc": 0.873333,
+    "fpr_at_95_tpr": 0.147689,
+    "tpr_at_1_fpr": 0.001136,
+    "runtime": 0.46
+  },
+  {
+    "family": "PortScan",
+    "model": "Plain AE",
+    "auroc": 0.936303,
+    "fpr_at_95_tpr": 0.133232,
+    "tpr_at_1_fpr": 0.004752,
+    "runtime": 124.24
+  },
+  {
+    "family": "BruteForce",
+    "model": "PCA",
+    "auroc": 0.790394,
+    "fpr_at_95_tpr": 0.29055,
+    "tpr_at_1_fpr": 0.000219,
+    "runtime": 0.41
+  },
+  {
+    "family": "BruteForce",
+    "model": "Plain AE",
+    "auroc": 0.891664,
+    "fpr_at_95_tpr": 0.161099,
+    "tpr_at_1_fpr": 0.000437,
+    "runtime": 127.67
+  },
+  {
+    "family": "WebAttack",
+    "model": "PCA",
+    "auroc": 0.70071,
+    "fpr_at_95_tpr": 0.749382,
+    "tpr_at_1_fpr": 0.009799,
+    "runtime": 0.41
+  },
+  {
+    "family": "WebAttack",
+    "model": "Plain AE",
+    "auroc": 0.842679,
+    "fpr_at_95_tpr": 0.686093,
+    "tpr_at_1_fpr": 0.033598,
+    "runtime": 134.11
+  },
+  {
+    "family": "Botnet",
+    "model": "PCA",
+    "auroc": 0.659539,
+    "fpr_at_95_tpr": 0.522633,
+    "tpr_at_1_fpr": 0.00462,
+    "runtime": 0.45
+  },
+  {
+    "family": "Botnet",
+    "model": "Plain AE",
+    "auroc": 0.663092,
+    "fpr_at_95_tpr": 0.797465,
+    "tpr_at_1_fpr": 0.022587,
+    "runtime": 139.24
+  },
+  {
+    "family": "Infiltration",
+    "model": "PCA",
+    "auroc": 0.950984,
+    "fpr_at_95_tpr": 0.14972,
+    "tpr_at_1_fpr": 0.361111,
+    "runtime": 0.46
+  },
+  {
+    "family": "Infiltration",
+    "model": "Plain AE",
+    "auroc": 0.969101,
+    "fpr_at_95_tpr": 0.150611,
+    "tpr_at_1_fpr": 0.555556,
+    "runtime": 139.0
+  }
+]

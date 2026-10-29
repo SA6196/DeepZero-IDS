@@ -1,0 +1,13 @@
+model,batch_size,num_features,median_us_per_flow,p95_us_per_flow,flows_per_second,parameter_count,fit_wall_clock_s1,cpu_model,operating_system
+PCA,1,76,107.4,253.9,9311.0,,1.48,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+PCA,256,76,0.54,1.13,1859789.3,,1.48,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+IsolationForest,1,76,3435.2,5589.67,291.1,,5.64,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+IsolationForest,256,76,18.56,26.75,53890.8,,5.64,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+LOF,1,76,261.95,570.21,3817.5,,111.82,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+LOF,256,76,8.76,15.26,114216.9,,111.82,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+OneClassSVM,1,76,116.4,319.74,8591.1,,77.97,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+OneClassSVM,256,76,12.7,17.54,78754.7,,77.97,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+MLP AE,1,76,155.1,390.9,6447.5,15132.0,385.66,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+MLP AE,256,76,2.59,5.77,386094.5,15132.0,385.66,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+VAE,1,76,155.2,413.31,6443.3,15660.0,415.89,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)
+VAE,256,76,2.47,5.04,404263.8,15660.0,415.89,"Intel64 Family 6 Model 189 Stepping 1, GenuineIntel",Windows 10 (Build 10.0.26200)

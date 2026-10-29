@@ -1,0 +1,602 @@
+[
+  {
+    "family": "BruteForce",
+    "c": 0,
+    "model": "PCA",
+    "auroc": 0.847333,
+    "fpr_at_95_tpr": 0.248375,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 0.58
+  },
+  {
+    "family": "BruteForce",
+    "c": 0,
+    "model": "Isolation Forest",
+    "auroc": 0.824644,
+    "fpr_at_95_tpr": 0.274307,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 1.82
+  },
+  {
+    "family": "BruteForce",
+    "c": 0,
+    "model": "Plain AE",
+    "auroc": 0.817933,
+    "fpr_at_95_tpr": 0.347151,
+    "tpr_at_1_fpr": 0.000219,
+    "attack_prevalence": 0.02095735,
+    "runtime": 19.31
+  },
+  {
+    "family": "BruteForce",
+    "c": 0,
+    "model": "Trimmed AE",
+    "auroc": 0.830819,
+    "fpr_at_95_tpr": 0.30156,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 14.66
+  },
+  {
+    "family": "BruteForce",
+    "c": 1,
+    "model": "PCA",
+    "auroc": 0.837804,
+    "fpr_at_95_tpr": 0.235552,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 0.41
+  },
+  {
+    "family": "BruteForce",
+    "c": 1,
+    "model": "Isolation Forest",
+    "auroc": 0.82756,
+    "fpr_at_95_tpr": 0.332422,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 1.65
+  },
+  {
+    "family": "BruteForce",
+    "c": 1,
+    "model": "Plain AE",
+    "auroc": 0.886744,
+    "fpr_at_95_tpr": 0.148323,
+    "tpr_at_1_fpr": 0.000219,
+    "attack_prevalence": 0.02095735,
+    "runtime": 41.24
+  },
+  {
+    "family": "BruteForce",
+    "c": 1,
+    "model": "Trimmed AE",
+    "auroc": 0.877447,
+    "fpr_at_95_tpr": 0.185123,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 34.75
+  },
+  {
+    "family": "BruteForce",
+    "c": 2,
+    "model": "PCA",
+    "auroc": 0.821096,
+    "fpr_at_95_tpr": 0.240465,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 0.4
+  },
+  {
+    "family": "BruteForce",
+    "c": 2,
+    "model": "Isolation Forest",
+    "auroc": 0.813496,
+    "fpr_at_95_tpr": 0.357021,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 1.61
+  },
+  {
+    "family": "BruteForce",
+    "c": 2,
+    "model": "Plain AE",
+    "auroc": 0.865972,
+    "fpr_at_95_tpr": 0.269217,
+    "tpr_at_1_fpr": 0.000219,
+    "attack_prevalence": 0.02095735,
+    "runtime": 22.13
+  },
+  {
+    "family": "BruteForce",
+    "c": 2,
+    "model": "Trimmed AE",
+    "auroc": 0.897183,
+    "fpr_at_95_tpr": 0.133124,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 14.24
+  },
+  {
+    "family": "BruteForce",
+    "c": 5,
+    "model": "PCA",
+    "auroc": 0.748865,
+    "fpr_at_95_tpr": 0.293886,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 0.38
+  },
+  {
+    "family": "BruteForce",
+    "c": 5,
+    "model": "Isolation Forest",
+    "auroc": 0.83458,
+    "fpr_at_95_tpr": 0.303885,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 1.6
+  },
+  {
+    "family": "BruteForce",
+    "c": 5,
+    "model": "Plain AE",
+    "auroc": 0.891805,
+    "fpr_at_95_tpr": 0.204302,
+    "tpr_at_1_fpr": 0.000219,
+    "attack_prevalence": 0.02095735,
+    "runtime": 16.09
+  },
+  {
+    "family": "BruteForce",
+    "c": 5,
+    "model": "Trimmed AE",
+    "auroc": 0.859367,
+    "fpr_at_95_tpr": 0.21194,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 33.98
+  },
+  {
+    "family": "BruteForce",
+    "c": 10,
+    "model": "PCA",
+    "auroc": 0.749987,
+    "fpr_at_95_tpr": 0.292539,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 0.36
+  },
+  {
+    "family": "BruteForce",
+    "c": 10,
+    "model": "Isolation Forest",
+    "auroc": 0.825904,
+    "fpr_at_95_tpr": 0.312033,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 1.54
+  },
+  {
+    "family": "BruteForce",
+    "c": 10,
+    "model": "Plain AE",
+    "auroc": 0.887421,
+    "fpr_at_95_tpr": 0.207177,
+    "tpr_at_1_fpr": 0.001421,
+    "attack_prevalence": 0.02095735,
+    "runtime": 59.33
+  },
+  {
+    "family": "BruteForce",
+    "c": 10,
+    "model": "Trimmed AE",
+    "auroc": 0.872919,
+    "fpr_at_95_tpr": 0.244587,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.02095735,
+    "runtime": 32.15
+  },
+  {
+    "family": "PortScan",
+    "c": 0,
+    "model": "PCA",
+    "auroc": 0.904496,
+    "fpr_at_95_tpr": 0.115992,
+    "tpr_at_1_fpr": 0.000937,
+    "attack_prevalence": 0.17503595,
+    "runtime": 0.52
+  },
+  {
+    "family": "PortScan",
+    "c": 0,
+    "model": "Isolation Forest",
+    "auroc": 0.638043,
+    "fpr_at_95_tpr": 0.449932,
+    "tpr_at_1_fpr": 0.000452,
+    "attack_prevalence": 0.17503595,
+    "runtime": 1.83
+  },
+  {
+    "family": "PortScan",
+    "c": 0,
+    "model": "Plain AE",
+    "auroc": 0.930281,
+    "fpr_at_95_tpr": 0.106618,
+    "tpr_at_1_fpr": 0.002007,
+    "attack_prevalence": 0.17503595,
+    "runtime": 25.0
+  },
+  {
+    "family": "PortScan",
+    "c": 0,
+    "model": "Trimmed AE",
+    "auroc": 0.919121,
+    "fpr_at_95_tpr": 0.126723,
+    "tpr_at_1_fpr": 6.6e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 32.26
+  },
+  {
+    "family": "PortScan",
+    "c": 1,
+    "model": "PCA",
+    "auroc": 0.898151,
+    "fpr_at_95_tpr": 0.116563,
+    "tpr_at_1_fpr": 0.000221,
+    "attack_prevalence": 0.17503595,
+    "runtime": 0.91
+  },
+  {
+    "family": "PortScan",
+    "c": 1,
+    "model": "Isolation Forest",
+    "auroc": 0.633768,
+    "fpr_at_95_tpr": 0.440476,
+    "tpr_at_1_fpr": 4.4e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 3.54
+  },
+  {
+    "family": "PortScan",
+    "c": 1,
+    "model": "Plain AE",
+    "auroc": 0.867303,
+    "fpr_at_95_tpr": 0.224767,
+    "tpr_at_1_fpr": 0.003793,
+    "attack_prevalence": 0.17503595,
+    "runtime": 47.99
+  },
+  {
+    "family": "PortScan",
+    "c": 1,
+    "model": "Trimmed AE",
+    "auroc": 0.86201,
+    "fpr_at_95_tpr": 0.218769,
+    "tpr_at_1_fpr": 6.6e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 28.01
+  },
+  {
+    "family": "PortScan",
+    "c": 2,
+    "model": "PCA",
+    "auroc": 0.896537,
+    "fpr_at_95_tpr": 0.111592,
+    "tpr_at_1_fpr": 0.00011,
+    "attack_prevalence": 0.17503595,
+    "runtime": 0.48
+  },
+  {
+    "family": "PortScan",
+    "c": 2,
+    "model": "Isolation Forest",
+    "auroc": 0.757773,
+    "fpr_at_95_tpr": 0.346234,
+    "tpr_at_1_fpr": 0.001246,
+    "attack_prevalence": 0.17503595,
+    "runtime": 1.68
+  },
+  {
+    "family": "PortScan",
+    "c": 2,
+    "model": "Plain AE",
+    "auroc": 0.848318,
+    "fpr_at_95_tpr": 0.260781,
+    "tpr_at_1_fpr": 0.001477,
+    "attack_prevalence": 0.17503595,
+    "runtime": 21.21
+  },
+  {
+    "family": "PortScan",
+    "c": 2,
+    "model": "Trimmed AE",
+    "auroc": 0.783279,
+    "fpr_at_95_tpr": 0.359929,
+    "tpr_at_1_fpr": 2.2e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 20.09
+  },
+  {
+    "family": "PortScan",
+    "c": 5,
+    "model": "PCA",
+    "auroc": 0.837333,
+    "fpr_at_95_tpr": 0.198884,
+    "tpr_at_1_fpr": 5.5e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 0.44
+  },
+  {
+    "family": "PortScan",
+    "c": 5,
+    "model": "Isolation Forest",
+    "auroc": 0.72269,
+    "fpr_at_95_tpr": 0.390571,
+    "tpr_at_1_fpr": 0.001257,
+    "attack_prevalence": 0.17503595,
+    "runtime": 1.7
+  },
+  {
+    "family": "PortScan",
+    "c": 5,
+    "model": "Plain AE",
+    "auroc": 0.844604,
+    "fpr_at_95_tpr": 0.231369,
+    "tpr_at_1_fpr": 0.000143,
+    "attack_prevalence": 0.17503595,
+    "runtime": 11.34
+  },
+  {
+    "family": "PortScan",
+    "c": 5,
+    "model": "Trimmed AE",
+    "auroc": 0.835617,
+    "fpr_at_95_tpr": 0.263946,
+    "tpr_at_1_fpr": 3.3e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 18.12
+  },
+  {
+    "family": "PortScan",
+    "c": 10,
+    "model": "PCA",
+    "auroc": 0.885593,
+    "fpr_at_95_tpr": 0.121766,
+    "tpr_at_1_fpr": 4.4e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 0.42
+  },
+  {
+    "family": "PortScan",
+    "c": 10,
+    "model": "Isolation Forest",
+    "auroc": 0.677003,
+    "fpr_at_95_tpr": 0.367336,
+    "tpr_at_1_fpr": 0.000728,
+    "attack_prevalence": 0.17503595,
+    "runtime": 1.61
+  },
+  {
+    "family": "PortScan",
+    "c": 10,
+    "model": "Plain AE",
+    "auroc": 0.932972,
+    "fpr_at_95_tpr": 0.12017,
+    "tpr_at_1_fpr": 0.003098,
+    "attack_prevalence": 0.17503595,
+    "runtime": 62.45
+  },
+  {
+    "family": "PortScan",
+    "c": 10,
+    "model": "Trimmed AE",
+    "auroc": 0.913804,
+    "fpr_at_95_tpr": 0.126005,
+    "tpr_at_1_fpr": 5.5e-05,
+    "attack_prevalence": 0.17503595,
+    "runtime": 33.49
+  },
+  {
+    "family": "WebAttack",
+    "c": 0,
+    "model": "PCA",
+    "auroc": 0.745868,
+    "fpr_at_95_tpr": 0.603756,
+    "tpr_at_1_fpr": 0.037331,
+    "attack_prevalence": 0.00498843,
+    "runtime": 0.36
+  },
+  {
+    "family": "WebAttack",
+    "c": 0,
+    "model": "Isolation Forest",
+    "auroc": 0.83774,
+    "fpr_at_95_tpr": 0.5394,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 1.54
+  },
+  {
+    "family": "WebAttack",
+    "c": 0,
+    "model": "Plain AE",
+    "auroc": 0.638168,
+    "fpr_at_95_tpr": 0.765692,
+    "tpr_at_1_fpr": 0.0028,
+    "attack_prevalence": 0.00498843,
+    "runtime": 18.03
+  },
+  {
+    "family": "WebAttack",
+    "c": 0,
+    "model": "Trimmed AE",
+    "auroc": 0.64444,
+    "fpr_at_95_tpr": 0.709857,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 17.11
+  },
+  {
+    "family": "WebAttack",
+    "c": 1,
+    "model": "PCA",
+    "auroc": 0.768355,
+    "fpr_at_95_tpr": 0.598288,
+    "tpr_at_1_fpr": 0.010266,
+    "attack_prevalence": 0.00498843,
+    "runtime": 0.35
+  },
+  {
+    "family": "WebAttack",
+    "c": 1,
+    "model": "Isolation Forest",
+    "auroc": 0.842532,
+    "fpr_at_95_tpr": 0.544965,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 1.56
+  },
+  {
+    "family": "WebAttack",
+    "c": 1,
+    "model": "Plain AE",
+    "auroc": 0.682023,
+    "fpr_at_95_tpr": 0.717359,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 30.97
+  },
+  {
+    "family": "WebAttack",
+    "c": 1,
+    "model": "Trimmed AE",
+    "auroc": 0.772718,
+    "fpr_at_95_tpr": 0.692037,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 51.18
+  },
+  {
+    "family": "WebAttack",
+    "c": 2,
+    "model": "PCA",
+    "auroc": 0.756549,
+    "fpr_at_95_tpr": 0.609403,
+    "tpr_at_1_fpr": 0.013532,
+    "attack_prevalence": 0.00498843,
+    "runtime": 0.37
+  },
+  {
+    "family": "WebAttack",
+    "c": 2,
+    "model": "Isolation Forest",
+    "auroc": 0.879987,
+    "fpr_at_95_tpr": 0.551076,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 1.66
+  },
+  {
+    "family": "WebAttack",
+    "c": 2,
+    "model": "Plain AE",
+    "auroc": 0.715629,
+    "fpr_at_95_tpr": 0.663597,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 15.93
+  },
+  {
+    "family": "WebAttack",
+    "c": 2,
+    "model": "Trimmed AE",
+    "auroc": 0.701493,
+    "fpr_at_95_tpr": 0.658211,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 16.81
+  },
+  {
+    "family": "WebAttack",
+    "c": 5,
+    "model": "PCA",
+    "auroc": 0.701169,
+    "fpr_at_95_tpr": 0.62919,
+    "tpr_at_1_fpr": 0.014932,
+    "attack_prevalence": 0.00498843,
+    "runtime": 0.37
+  },
+  {
+    "family": "WebAttack",
+    "c": 5,
+    "model": "Isolation Forest",
+    "auroc": 0.836623,
+    "fpr_at_95_tpr": 0.556052,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 1.65
+  },
+  {
+    "family": "WebAttack",
+    "c": 5,
+    "model": "Plain AE",
+    "auroc": 0.717038,
+    "fpr_at_95_tpr": 0.700642,
+    "tpr_at_1_fpr": 0.0014,
+    "attack_prevalence": 0.00498843,
+    "runtime": 18.65
+  },
+  {
+    "family": "WebAttack",
+    "c": 5,
+    "model": "Trimmed AE",
+    "auroc": 0.747691,
+    "fpr_at_95_tpr": 0.753429,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 21.81
+  },
+  {
+    "family": "WebAttack",
+    "c": 10,
+    "model": "PCA",
+    "auroc": 0.698126,
+    "fpr_at_95_tpr": 0.626638,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 0.36
+  },
+  {
+    "family": "WebAttack",
+    "c": 10,
+    "model": "Isolation Forest",
+    "auroc": 0.831978,
+    "fpr_at_95_tpr": 0.547948,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 1.61
+  },
+  {
+    "family": "WebAttack",
+    "c": 10,
+    "model": "Plain AE",
+    "auroc": 0.725705,
+    "fpr_at_95_tpr": 0.698178,
+    "tpr_at_1_fpr": 0.0056,
+    "attack_prevalence": 0.00498843,
+    "runtime": 42.48
+  },
+  {
+    "family": "WebAttack",
+    "c": 10,
+    "model": "Trimmed AE",
+    "auroc": 0.755808,
+    "fpr_at_95_tpr": 0.70525,
+    "tpr_at_1_fpr": 0.0,
+    "attack_prevalence": 0.00498843,
+    "runtime": 34.33
+  }
+]

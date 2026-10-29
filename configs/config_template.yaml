@@ -1,0 +1,22 @@
+# Experiment configuration template (Global Rule 3: explicit seed, driven by YAML)
+experiment:
+  name: "p1_lofo_ae_baseline"
+  seed: 42
+  device: "cpu"
+
+dataset:
+  name: "cicids2017_corrected"
+  raw_dir: "data/raw/cicids2017_corrected"
+  cleaned_path: "data/processed/cicids2017_cleaned.parquet"
+  report_path: "data/processed/cleaning_report.json"
+
+protocol:
+  name: "P1"  # P1 (LOFO), P2 (temporal), P4 (contamination)
+  lofo_family: "DoS/DDoS"
+  contamination_rate: 0.0  # Used in P4: 0.0, 0.01, 0.02, 0.05, 0.10
+  include_test_family_in_contamination: false
+  val_benign_ratio: 0.2
+  test_benign_ratio: 0.2
+
+splits_dir: "splits/indices"
+output_dir: "results"

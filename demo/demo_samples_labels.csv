@@ -1,0 +1,701 @@
+flow_index,Attack_Family,Label,is_attack
+0,Benign,BENIGN,0
+1,Benign,BENIGN,0
+2,Benign,BENIGN,0
+3,Benign,BENIGN,0
+4,Benign,BENIGN,0
+5,Benign,BENIGN,0
+6,Benign,BENIGN,0
+7,Benign,BENIGN,0
+8,Benign,BENIGN,0
+9,Benign,BENIGN,0
+10,Benign,BENIGN,0
+11,Benign,BENIGN,0
+12,Benign,BENIGN,0
+13,Benign,BENIGN,0
+14,Benign,BENIGN,0
+15,Benign,BENIGN,0
+16,Benign,BENIGN,0
+17,Benign,BENIGN,0
+18,Benign,BENIGN,0
+19,Benign,BENIGN,0
+20,Benign,BENIGN,0
+21,Benign,BENIGN,0
+22,Benign,BENIGN,0
+23,Benign,BENIGN,0
+24,Benign,BENIGN,0
+25,Benign,BENIGN,0
+26,Benign,BENIGN,0
+27,Benign,BENIGN,0
+28,Benign,BENIGN,0
+29,Benign,BENIGN,0
+30,Benign,BENIGN,0
+31,Benign,BENIGN,0
+32,Benign,BENIGN,0
+33,Benign,BENIGN,0
+34,Benign,BENIGN,0
+35,Benign,BENIGN,0
+36,Benign,BENIGN,0
+37,Benign,BENIGN,0
+38,Benign,BENIGN,0
+39,Benign,BENIGN,0
+40,Benign,BENIGN,0
+41,Benign,BENIGN,0
+42,Benign,BENIGN,0
+43,Benign,BENIGN,0
+44,Benign,BENIGN,0
+45,Benign,BENIGN,0
+46,Benign,BENIGN,0
+47,Benign,BENIGN,0
+48,Benign,BENIGN,0
+49,Benign,BENIGN,0
+50,Benign,BENIGN,0
+51,Benign,BENIGN,0
+52,Benign,BENIGN,0
+53,Benign,BENIGN,0
+54,Benign,BENIGN,0
+55,Benign,BENIGN,0
+56,Benign,BENIGN,0
+57,Benign,BENIGN,0
+58,Benign,BENIGN,0
+59,Benign,BENIGN,0
+60,Benign,BENIGN,0
+61,Benign,BENIGN,0
+62,Benign,BENIGN,0
+63,Benign,BENIGN,0
+64,Benign,BENIGN,0
+65,Benign,BENIGN,0
+66,Benign,BENIGN,0
+67,Benign,BENIGN,0
+68,Benign,BENIGN,0
+69,Benign,BENIGN,0
+70,Benign,BENIGN,0
+71,Benign,BENIGN,0
+72,Benign,BENIGN,0
+73,Benign,BENIGN,0
+74,Benign,BENIGN,0
+75,Benign,BENIGN,0
+76,Benign,BENIGN,0
+77,Benign,BENIGN,0
+78,Benign,BENIGN,0
+79,Benign,BENIGN,0
+80,Benign,BENIGN,0
+81,Benign,BENIGN,0
+82,Benign,BENIGN,0
+83,Benign,BENIGN,0
+84,Benign,BENIGN,0
+85,Benign,BENIGN,0
+86,Benign,BENIGN,0
+87,Benign,BENIGN,0
+88,Benign,BENIGN,0
+89,Benign,BENIGN,0
+90,Benign,BENIGN,0
+91,Benign,BENIGN,0
+92,Benign,BENIGN,0
+93,Benign,BENIGN,0
+94,Benign,BENIGN,0
+95,Benign,BENIGN,0
+96,Benign,BENIGN,0
+97,Benign,BENIGN,0
+98,Benign,BENIGN,0
+99,Benign,BENIGN,0
+100,Benign,BENIGN,0
+101,Benign,BENIGN,0
+102,Benign,BENIGN,0
+103,Benign,BENIGN,0
+104,Benign,BENIGN,0
+105,Benign,BENIGN,0
+106,Benign,BENIGN,0
+107,Benign,BENIGN,0
+108,Benign,BENIGN,0
+109,Benign,BENIGN,0
+110,Benign,BENIGN,0
+111,Benign,BENIGN,0
+112,Benign,BENIGN,0
+113,Benign,BENIGN,0
+114,Benign,BENIGN,0
+115,Benign,BENIGN,0
+116,Benign,BENIGN,0
+117,Benign,BENIGN,0
+118,Benign,BENIGN,0
+119,Benign,BENIGN,0
+120,Benign,BENIGN,0
+121,Benign,BENIGN,0
+122,Benign,BENIGN,0
+123,Benign,BENIGN,0
+124,Benign,BENIGN,0
+125,Benign,BENIGN,0
+126,Benign,BENIGN,0
+127,Benign,BENIGN,0
+128,Benign,BENIGN,0
+129,Benign,BENIGN,0
+130,Benign,BENIGN,0
+131,Benign,BENIGN,0
+132,Benign,BENIGN,0
+133,Benign,BENIGN,0
+134,Benign,BENIGN,0
+135,Benign,BENIGN,0
+136,Benign,BENIGN,0
+137,Benign,BENIGN,0
+138,Benign,BENIGN,0
+139,Benign,BENIGN,0
+140,Benign,BENIGN,0
+141,Benign,BENIGN,0
+142,Benign,BENIGN,0
+143,Benign,BENIGN,0
+144,Benign,BENIGN,0
+145,Benign,BENIGN,0
+146,Benign,BENIGN,0
+147,Benign,BENIGN,0
+148,Benign,BENIGN,0
+149,Benign,BENIGN,0
+150,Benign,BENIGN,0
+151,Benign,BENIGN,0
+152,Benign,BENIGN,0
+153,Benign,BENIGN,0
+154,Benign,BENIGN,0
+155,Benign,BENIGN,0
+156,Benign,BENIGN,0
+157,Benign,BENIGN,0
+158,Benign,BENIGN,0
+159,Benign,BENIGN,0
+160,Benign,BENIGN,0
+161,Benign,BENIGN,0
+162,Benign,BENIGN,0
+163,Benign,BENIGN,0
+164,Benign,BENIGN,0
+165,Benign,BENIGN,0
+166,Benign,BENIGN,0
+167,Benign,BENIGN,0
+168,Benign,BENIGN,0
+169,Benign,BENIGN,0
+170,Benign,BENIGN,0
+171,Benign,BENIGN,0
+172,Benign,BENIGN,0
+173,Benign,BENIGN,0
+174,Benign,BENIGN,0
+175,Benign,BENIGN,0
+176,Benign,BENIGN,0
+177,Benign,BENIGN,0
+178,Benign,BENIGN,0
+179,Benign,BENIGN,0
+180,Benign,BENIGN,0
+181,Benign,BENIGN,0
+182,Benign,BENIGN,0
+183,Benign,BENIGN,0
+184,Benign,BENIGN,0
+185,Benign,BENIGN,0
+186,Benign,BENIGN,0
+187,Benign,BENIGN,0
+188,Benign,BENIGN,0
+189,Benign,BENIGN,0
+190,Benign,BENIGN,0
+191,Benign,BENIGN,0
+192,Benign,BENIGN,0
+193,Benign,BENIGN,0
+194,Benign,BENIGN,0
+195,Benign,BENIGN,0
+196,Benign,BENIGN,0
+197,Benign,BENIGN,0
+198,Benign,BENIGN,0
+199,Benign,BENIGN,0
+200,Benign,BENIGN,0
+201,Benign,BENIGN,0
+202,Benign,BENIGN,0
+203,Benign,BENIGN,0
+204,Benign,BENIGN,0
+205,Benign,BENIGN,0
+206,Benign,BENIGN,0
+207,Benign,BENIGN,0
+208,Benign,BENIGN,0
+209,Benign,BENIGN,0
+210,Benign,BENIGN,0
+211,Benign,BENIGN,0
+212,Benign,BENIGN,0
+213,Benign,BENIGN,0
+214,Benign,BENIGN,0
+215,Benign,BENIGN,0
+216,Benign,BENIGN,0
+217,Benign,BENIGN,0
+218,Benign,BENIGN,0
+219,Benign,BENIGN,0
+220,Benign,BENIGN,0
+221,Benign,BENIGN,0
+222,Benign,BENIGN,0
+223,Benign,BENIGN,0
+224,Benign,BENIGN,0
+225,Benign,BENIGN,0
+226,Benign,BENIGN,0
+227,Benign,BENIGN,0
+228,Benign,BENIGN,0
+229,Benign,BENIGN,0
+230,Benign,BENIGN,0
+231,Benign,BENIGN,0
+232,Benign,BENIGN,0
+233,Benign,BENIGN,0
+234,Benign,BENIGN,0
+235,Benign,BENIGN,0
+236,Benign,BENIGN,0
+237,Benign,BENIGN,0
+238,Benign,BENIGN,0
+239,Benign,BENIGN,0
+240,Benign,BENIGN,0
+241,Benign,BENIGN,0
+242,Benign,BENIGN,0
+243,Benign,BENIGN,0
+244,Benign,BENIGN,0
+245,Benign,BENIGN,0
+246,Benign,BENIGN,0
+247,Benign,BENIGN,0
+248,Benign,BENIGN,0
+249,Benign,BENIGN,0
+250,Benign,BENIGN,0
+251,Benign,BENIGN,0
+252,Benign,BENIGN,0
+253,Benign,BENIGN,0
+254,Benign,BENIGN,0
+255,Benign,BENIGN,0
+256,Benign,BENIGN,0
+257,Benign,BENIGN,0
+258,Benign,BENIGN,0
+259,Benign,BENIGN,0
+260,Benign,BENIGN,0
+261,Benign,BENIGN,0
+262,Benign,BENIGN,0
+263,Benign,BENIGN,0
+264,Benign,BENIGN,0
+265,Benign,BENIGN,0
+266,Benign,BENIGN,0
+267,Benign,BENIGN,0
+268,Benign,BENIGN,0
+269,Benign,BENIGN,0
+270,Benign,BENIGN,0
+271,Benign,BENIGN,0
+272,Benign,BENIGN,0
+273,Benign,BENIGN,0
+274,Benign,BENIGN,0
+275,Benign,BENIGN,0
+276,Benign,BENIGN,0
+277,Benign,BENIGN,0
+278,Benign,BENIGN,0
+279,Benign,BENIGN,0
+280,Benign,BENIGN,0
+281,Benign,BENIGN,0
+282,Benign,BENIGN,0
+283,Benign,BENIGN,0
+284,Benign,BENIGN,0
+285,Benign,BENIGN,0
+286,Benign,BENIGN,0
+287,Benign,BENIGN,0
+288,Benign,BENIGN,0
+289,Benign,BENIGN,0
+290,Benign,BENIGN,0
+291,Benign,BENIGN,0
+292,Benign,BENIGN,0
+293,Benign,BENIGN,0
+294,Benign,BENIGN,0
+295,Benign,BENIGN,0
+296,Benign,BENIGN,0
+297,Benign,BENIGN,0
+298,Benign,BENIGN,0
+299,Benign,BENIGN,0
+300,DoS/DDoS,DDoS,1
+301,DoS/DDoS,DoS Hulk,1
+302,DoS/DDoS,DoS Hulk,1
+303,DoS/DDoS,DoS Hulk,1
+304,DoS/DDoS,DDoS,1
+305,DoS/DDoS,DDoS,1
+306,DoS/DDoS,DDoS,1
+307,DoS/DDoS,DoS Hulk,1
+308,DoS/DDoS,DoS Hulk,1
+309,DoS/DDoS,DoS Hulk,1
+310,DoS/DDoS,DDoS,1
+311,DoS/DDoS,DoS Hulk,1
+312,DoS/DDoS,DoS Hulk,1
+313,DoS/DDoS,DoS Hulk,1
+314,DoS/DDoS,DoS GoldenEye,1
+315,DoS/DDoS,DoS Hulk,1
+316,DoS/DDoS,DDoS,1
+317,DoS/DDoS,DDoS,1
+318,DoS/DDoS,DoS Hulk,1
+319,DoS/DDoS,DDoS,1
+320,DoS/DDoS,DoS Hulk,1
+321,DoS/DDoS,DoS Hulk,1
+322,DoS/DDoS,DDoS,1
+323,DoS/DDoS,DDoS,1
+324,DoS/DDoS,DoS GoldenEye,1
+325,DoS/DDoS,DoS Hulk,1
+326,DoS/DDoS,DDoS,1
+327,DoS/DDoS,DoS Hulk,1
+328,DoS/DDoS,DoS Hulk,1
+329,DoS/DDoS,DoS Hulk,1
+330,DoS/DDoS,DDoS,1
+331,DoS/DDoS,DDoS,1
+332,DoS/DDoS,DoS Hulk,1
+333,DoS/DDoS,DDoS,1
+334,DoS/DDoS,DDoS,1
+335,DoS/DDoS,DoS slowloris,1
+336,DoS/DDoS,DoS Hulk,1
+337,DoS/DDoS,DoS Hulk,1
+338,DoS/DDoS,DoS Hulk,1
+339,DoS/DDoS,DoS Hulk,1
+340,DoS/DDoS,DoS Hulk,1
+341,DoS/DDoS,DoS Hulk,1
+342,DoS/DDoS,DoS Hulk,1
+343,DoS/DDoS,DoS Hulk,1
+344,DoS/DDoS,DoS Hulk,1
+345,DoS/DDoS,DoS Hulk,1
+346,DoS/DDoS,DoS Hulk,1
+347,DoS/DDoS,DDoS,1
+348,DoS/DDoS,DoS Hulk,1
+349,DoS/DDoS,DoS Hulk,1
+350,DoS/DDoS,DoS Hulk,1
+351,DoS/DDoS,DoS Hulk,1
+352,DoS/DDoS,DoS Hulk,1
+353,DoS/DDoS,DDoS,1
+354,DoS/DDoS,DoS Hulk,1
+355,DoS/DDoS,DoS Hulk,1
+356,DoS/DDoS,DDoS,1
+357,DoS/DDoS,DoS Hulk,1
+358,DoS/DDoS,DDoS,1
+359,DoS/DDoS,DoS Hulk,1
+360,DoS/DDoS,DoS Hulk,1
+361,DoS/DDoS,DDoS,1
+362,DoS/DDoS,DDoS,1
+363,DoS/DDoS,DoS Hulk,1
+364,DoS/DDoS,DoS Slowhttptest,1
+365,DoS/DDoS,DDoS,1
+366,DoS/DDoS,DDoS,1
+367,DoS/DDoS,DoS Hulk,1
+368,DoS/DDoS,DDoS,1
+369,DoS/DDoS,DoS Hulk,1
+370,DoS/DDoS,DoS Hulk,1
+371,DoS/DDoS,DoS GoldenEye,1
+372,DoS/DDoS,DoS Hulk,1
+373,DoS/DDoS,DoS Hulk,1
+374,DoS/DDoS,DDoS,1
+375,DoS/DDoS,DoS Hulk,1
+376,DoS/DDoS,DDoS,1
+377,DoS/DDoS,DDoS,1
+378,DoS/DDoS,DoS Hulk,1
+379,DoS/DDoS,DDoS,1
+380,DoS/DDoS,DDoS,1
+381,DoS/DDoS,DoS Hulk,1
+382,DoS/DDoS,DDoS,1
+383,DoS/DDoS,DDoS,1
+384,DoS/DDoS,DDoS,1
+385,DoS/DDoS,DoS Hulk,1
+386,DoS/DDoS,DDoS,1
+387,DoS/DDoS,DoS Hulk,1
+388,DoS/DDoS,DDoS,1
+389,DoS/DDoS,DoS Hulk,1
+390,DoS/DDoS,DDoS,1
+391,DoS/DDoS,DDoS,1
+392,DoS/DDoS,DDoS,1
+393,DoS/DDoS,DoS GoldenEye,1
+394,DoS/DDoS,DoS Hulk,1
+395,DoS/DDoS,DoS Hulk,1
+396,DoS/DDoS,DDoS,1
+397,DoS/DDoS,DoS Hulk,1
+398,DoS/DDoS,DDoS,1
+399,DoS/DDoS,DoS Hulk,1
+400,PortScan,PortScan,1
+401,PortScan,PortScan,1
+402,PortScan,PortScan,1
+403,PortScan,PortScan,1
+404,PortScan,PortScan,1
+405,PortScan,PortScan,1
+406,PortScan,PortScan,1
+407,PortScan,PortScan,1
+408,PortScan,PortScan,1
+409,PortScan,PortScan,1
+410,PortScan,PortScan,1
+411,PortScan,PortScan,1
+412,PortScan,PortScan,1
+413,PortScan,PortScan,1
+414,PortScan,PortScan,1
+415,PortScan,PortScan,1
+416,PortScan,PortScan,1
+417,PortScan,PortScan,1
+418,PortScan,PortScan,1
+419,PortScan,PortScan,1
+420,PortScan,PortScan,1
+421,PortScan,PortScan,1
+422,PortScan,PortScan,1
+423,PortScan,PortScan,1
+424,PortScan,PortScan,1
+425,PortScan,PortScan,1
+426,PortScan,PortScan,1
+427,PortScan,PortScan,1
+428,PortScan,PortScan,1
+429,PortScan,PortScan,1
+430,PortScan,PortScan,1
+431,PortScan,PortScan,1
+432,PortScan,PortScan,1
+433,PortScan,PortScan,1
+434,PortScan,PortScan,1
+435,PortScan,PortScan,1
+436,PortScan,PortScan,1
+437,PortScan,PortScan,1
+438,PortScan,PortScan,1
+439,PortScan,PortScan,1
+440,PortScan,PortScan,1
+441,PortScan,PortScan,1
+442,PortScan,PortScan,1
+443,PortScan,PortScan,1
+444,PortScan,PortScan,1
+445,PortScan,PortScan,1
+446,PortScan,PortScan,1
+447,PortScan,PortScan,1
+448,PortScan,PortScan,1
+449,PortScan,PortScan,1
+450,PortScan,PortScan,1
+451,PortScan,PortScan,1
+452,PortScan,PortScan,1
+453,PortScan,PortScan,1
+454,PortScan,PortScan,1
+455,PortScan,PortScan,1
+456,PortScan,PortScan,1
+457,PortScan,PortScan,1
+458,PortScan,PortScan,1
+459,PortScan,PortScan,1
+460,PortScan,PortScan,1
+461,PortScan,PortScan,1
+462,PortScan,PortScan,1
+463,PortScan,PortScan,1
+464,PortScan,PortScan,1
+465,PortScan,PortScan,1
+466,PortScan,PortScan,1
+467,PortScan,PortScan,1
+468,PortScan,PortScan,1
+469,PortScan,PortScan,1
+470,PortScan,PortScan,1
+471,PortScan,PortScan,1
+472,PortScan,PortScan,1
+473,PortScan,PortScan,1
+474,PortScan,PortScan,1
+475,PortScan,PortScan,1
+476,PortScan,PortScan,1
+477,PortScan,PortScan,1
+478,PortScan,PortScan,1
+479,PortScan,PortScan,1
+480,PortScan,PortScan,1
+481,PortScan,PortScan,1
+482,PortScan,PortScan,1
+483,PortScan,PortScan,1
+484,PortScan,PortScan,1
+485,PortScan,PortScan,1
+486,PortScan,PortScan,1
+487,PortScan,PortScan,1
+488,PortScan,PortScan,1
+489,PortScan,PortScan,1
+490,PortScan,PortScan,1
+491,PortScan,PortScan,1
+492,PortScan,PortScan,1
+493,PortScan,PortScan,1
+494,PortScan,PortScan,1
+495,PortScan,PortScan,1
+496,PortScan,PortScan,1
+497,PortScan,PortScan,1
+498,PortScan,PortScan,1
+499,PortScan,PortScan,1
+500,BruteForce,FTP-Patator,1
+501,BruteForce,FTP-Patator,1
+502,BruteForce,FTP-Patator,1
+503,BruteForce,FTP-Patator,1
+504,BruteForce,FTP-Patator,1
+505,BruteForce,FTP-Patator,1
+506,BruteForce,FTP-Patator,1
+507,BruteForce,SSH-Patator,1
+508,BruteForce,FTP-Patator,1
+509,BruteForce,FTP-Patator,1
+510,BruteForce,FTP-Patator,1
+511,BruteForce,FTP-Patator,1
+512,BruteForce,FTP-Patator,1
+513,BruteForce,SSH-Patator,1
+514,BruteForce,FTP-Patator,1
+515,BruteForce,SSH-Patator,1
+516,BruteForce,SSH-Patator,1
+517,BruteForce,FTP-Patator,1
+518,BruteForce,FTP-Patator,1
+519,BruteForce,SSH-Patator,1
+520,BruteForce,FTP-Patator,1
+521,BruteForce,FTP-Patator,1
+522,BruteForce,FTP-Patator,1
+523,BruteForce,FTP-Patator,1
+524,BruteForce,FTP-Patator,1
+525,BruteForce,FTP-Patator,1
+526,BruteForce,FTP-Patator,1
+527,BruteForce,FTP-Patator,1
+528,BruteForce,SSH-Patator,1
+529,BruteForce,SSH-Patator,1
+530,BruteForce,FTP-Patator,1
+531,BruteForce,SSH-Patator,1
+532,BruteForce,SSH-Patator,1
+533,BruteForce,FTP-Patator,1
+534,BruteForce,SSH-Patator,1
+535,BruteForce,FTP-Patator,1
+536,BruteForce,FTP-Patator,1
+537,BruteForce,FTP-Patator,1
+538,BruteForce,FTP-Patator,1
+539,BruteForce,SSH-Patator,1
+540,BruteForce,FTP-Patator,1
+541,BruteForce,FTP-Patator,1
+542,BruteForce,FTP-Patator,1
+543,BruteForce,FTP-Patator,1
+544,BruteForce,FTP-Patator,1
+545,BruteForce,SSH-Patator,1
+546,BruteForce,FTP-Patator,1
+547,BruteForce,FTP-Patator,1
+548,BruteForce,FTP-Patator,1
+549,BruteForce,SSH-Patator,1
+550,BruteForce,FTP-Patator,1
+551,BruteForce,FTP-Patator,1
+552,BruteForce,SSH-Patator,1
+553,BruteForce,SSH-Patator,1
+554,BruteForce,FTP-Patator,1
+555,BruteForce,FTP-Patator,1
+556,BruteForce,SSH-Patator,1
+557,BruteForce,FTP-Patator,1
+558,BruteForce,FTP-Patator,1
+559,BruteForce,FTP-Patator,1
+560,BruteForce,FTP-Patator,1
+561,BruteForce,FTP-Patator,1
+562,BruteForce,SSH-Patator,1
+563,BruteForce,SSH-Patator,1
+564,BruteForce,FTP-Patator,1
+565,BruteForce,FTP-Patator,1
+566,BruteForce,FTP-Patator,1
+567,BruteForce,SSH-Patator,1
+568,BruteForce,SSH-Patator,1
+569,BruteForce,FTP-Patator,1
+570,BruteForce,SSH-Patator,1
+571,BruteForce,FTP-Patator,1
+572,BruteForce,FTP-Patator,1
+573,BruteForce,SSH-Patator,1
+574,BruteForce,FTP-Patator,1
+575,BruteForce,FTP-Patator,1
+576,BruteForce,FTP-Patator,1
+577,BruteForce,FTP-Patator,1
+578,BruteForce,FTP-Patator,1
+579,BruteForce,FTP-Patator,1
+580,BruteForce,FTP-Patator,1
+581,BruteForce,FTP-Patator,1
+582,BruteForce,FTP-Patator,1
+583,BruteForce,FTP-Patator,1
+584,BruteForce,FTP-Patator,1
+585,BruteForce,SSH-Patator,1
+586,BruteForce,FTP-Patator,1
+587,BruteForce,FTP-Patator,1
+588,BruteForce,FTP-Patator,1
+589,BruteForce,SSH-Patator,1
+590,BruteForce,FTP-Patator,1
+591,BruteForce,SSH-Patator,1
+592,BruteForce,FTP-Patator,1
+593,BruteForce,SSH-Patator,1
+594,BruteForce,FTP-Patator,1
+595,BruteForce,FTP-Patator,1
+596,BruteForce,FTP-Patator,1
+597,BruteForce,FTP-Patator,1
+598,BruteForce,SSH-Patator,1
+599,BruteForce,FTP-Patator,1
+600,WebAttack,Web Attack � Brute Force,1
+601,WebAttack,Web Attack � Brute Force,1
+602,WebAttack,Web Attack � Brute Force,1
+603,WebAttack,Web Attack � XSS,1
+604,WebAttack,Web Attack � Brute Force,1
+605,WebAttack,Web Attack � Brute Force,1
+606,WebAttack,Web Attack � XSS,1
+607,WebAttack,Web Attack � Brute Force,1
+608,WebAttack,Web Attack � XSS,1
+609,WebAttack,Web Attack � Sql Injection,1
+610,WebAttack,Web Attack � XSS,1
+611,WebAttack,Web Attack � Brute Force,1
+612,WebAttack,Web Attack � Brute Force,1
+613,WebAttack,Web Attack � Brute Force,1
+614,WebAttack,Web Attack � Brute Force,1
+615,WebAttack,Web Attack � Brute Force,1
+616,WebAttack,Web Attack � Brute Force,1
+617,WebAttack,Web Attack � Brute Force,1
+618,WebAttack,Web Attack � Brute Force,1
+619,WebAttack,Web Attack � XSS,1
+620,WebAttack,Web Attack � Brute Force,1
+621,WebAttack,Web Attack � XSS,1
+622,WebAttack,Web Attack � Brute Force,1
+623,WebAttack,Web Attack � Brute Force,1
+624,WebAttack,Web Attack � Brute Force,1
+625,WebAttack,Web Attack � Brute Force,1
+626,WebAttack,Web Attack � Brute Force,1
+627,WebAttack,Web Attack � XSS,1
+628,WebAttack,Web Attack � Brute Force,1
+629,WebAttack,Web Attack � Brute Force,1
+630,WebAttack,Web Attack � Brute Force,1
+631,WebAttack,Web Attack � XSS,1
+632,WebAttack,Web Attack � Brute Force,1
+633,WebAttack,Web Attack � XSS,1
+634,WebAttack,Web Attack � Brute Force,1
+635,WebAttack,Web Attack � Brute Force,1
+636,WebAttack,Web Attack � XSS,1
+637,WebAttack,Web Attack � Brute Force,1
+638,WebAttack,Web Attack � Brute Force,1
+639,WebAttack,Web Attack � Brute Force,1
+640,WebAttack,Web Attack � Brute Force,1
+641,WebAttack,Web Attack � XSS,1
+642,WebAttack,Web Attack � XSS,1
+643,WebAttack,Web Attack � XSS,1
+644,WebAttack,Web Attack � Brute Force,1
+645,WebAttack,Web Attack � Brute Force,1
+646,WebAttack,Web Attack � Brute Force,1
+647,WebAttack,Web Attack � XSS,1
+648,WebAttack,Web Attack � XSS,1
+649,WebAttack,Web Attack � XSS,1
+650,WebAttack,Web Attack � XSS,1
+651,WebAttack,Web Attack � Brute Force,1
+652,WebAttack,Web Attack � XSS,1
+653,WebAttack,Web Attack � Brute Force,1
+654,WebAttack,Web Attack � Brute Force,1
+655,WebAttack,Web Attack � XSS,1
+656,WebAttack,Web Attack � XSS,1
+657,WebAttack,Web Attack � Brute Force,1
+658,WebAttack,Web Attack � Brute Force,1
+659,WebAttack,Web Attack � Brute Force,1
+660,WebAttack,Web Attack � Brute Force,1
+661,WebAttack,Web Attack � Brute Force,1
+662,WebAttack,Web Attack � Brute Force,1
+663,WebAttack,Web Attack � Brute Force,1
+664,WebAttack,Web Attack � XSS,1
+665,WebAttack,Web Attack � Brute Force,1
+666,WebAttack,Web Attack � XSS,1
+667,WebAttack,Web Attack � Brute Force,1
+668,WebAttack,Web Attack � Brute Force,1
+669,WebAttack,Web Attack � Brute Force,1
+670,WebAttack,Web Attack � Brute Force,1
+671,WebAttack,Web Attack � Brute Force,1
+672,WebAttack,Web Attack � Brute Force,1
+673,WebAttack,Web Attack � Brute Force,1
+674,WebAttack,Web Attack � XSS,1
+675,WebAttack,Web Attack � Brute Force,1
+676,WebAttack,Web Attack � Brute Force,1
+677,WebAttack,Web Attack � Brute Force,1
+678,WebAttack,Web Attack � Brute Force,1
+679,WebAttack,Web Attack � Brute Force,1
+680,WebAttack,Web Attack � Brute Force,1
+681,WebAttack,Web Attack � XSS,1
+682,WebAttack,Web Attack � Brute Force,1
+683,WebAttack,Web Attack � Brute Force,1
+684,WebAttack,Web Attack � XSS,1
+685,WebAttack,Web Attack � XSS,1
+686,WebAttack,Web Attack � XSS,1
+687,WebAttack,Web Attack � Brute Force,1
+688,WebAttack,Web Attack � Brute Force,1
+689,WebAttack,Web Attack � Brute Force,1
+690,WebAttack,Web Attack � Brute Force,1
+691,WebAttack,Web Attack � Brute Force,1
+692,WebAttack,Web Attack � XSS,1
+693,WebAttack,Web Attack � XSS,1
+694,WebAttack,Web Attack � Brute Force,1
+695,WebAttack,Web Attack � XSS,1
+696,WebAttack,Web Attack � XSS,1
+697,WebAttack,Web Attack � XSS,1
+698,WebAttack,Web Attack � Brute Force,1
+699,WebAttack,Web Attack � Brute Force,1

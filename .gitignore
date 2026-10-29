@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest / Caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Large datasets and raw binaries (exceeds GitHub limits)
+data/raw/
+data/processed/*.parquet
+data/processed/*.csv
+*.pcap
+*.pcap_ISCX.csv
+
+# Temporary files and IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

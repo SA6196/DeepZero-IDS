@@ -1,0 +1,13 @@
+# Core dependencies pinned for Python 3.11 research reproducibility
+# Global Rule 6: Python 3.11, PyTorch, scikit-learn, pandas/pyarrow, pytest. Pin versions in requirements.txt.
+
+torch==2.14.1+cpu
+numpy==2.2.3
+pandas==2.2.3
+pyarrow==19.0.1
+scikit-learn==1.6.1
+scipy==1.15.2
+pyyaml==6.0.2
+pytest==8.3.5
+tqdm==4.67.1
+matplotlib==3.11.2

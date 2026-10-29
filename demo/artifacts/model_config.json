@@ -1,0 +1,9 @@
+{
+  "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+  "input_dim": 68,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "bottleneck_dim": 16
+}

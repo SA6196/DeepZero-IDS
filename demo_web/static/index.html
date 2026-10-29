@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero-Day Flow Anomaly Detector</title>
+  <!-- Bundled local Plotly for 100% offline capability -->
+  <script src="/static/plotly.min.js"></script>
+  <style>
+    /* Security Operations Dark Theme */
+    :root {
+      --bg: #0b1020;
+      --card-bg: #121a33;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(56, 189, 248, 0.3);
+      --text: #e6ebff;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --alert: #f43f5e;
+      --alert-bg: rgba(244, 63, 94, 0.12);
+      --safe: #22c55e;
+      --safe-bg: rgba(34, 197, 94, 0.12);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.15);
+      --font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-family);
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 24px 40px;
+      flex: 1;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 20px;
+    }
+
+    .header-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-icon {
+      font-size: 28px;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .badge-amber {
+      display: inline-flex;
+      align-items: center;
+      background: var(--warning-bg);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+    }
+
+    /* Controls Bar */
+    .controls-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      color: #0b1020;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-demo {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+    .btn-demo:hover {
+      background: var(--warning);
+      color: #0b1020;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .slider-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 280px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .slider-title {
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slider-val-badge {
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      cursor: pointer;
+      border: 2px solid #0b1020;
+      transition: transform 0.1s;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .slider-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .kpi-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+    }
+    .kpi-flagged::before { background: var(--alert); }
+    .kpi-safe::before { background: var(--safe); }
+    .kpi-thresh::before { background: var(--warning); }
+
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 30px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+    .kpi-flagged .kpi-value { color: var(--alert); }
+    .kpi-safe .kpi-value { color: var(--safe); }
+    .kpi-thresh .kpi-value { color: var(--warning); font-family: monospace; font-size: 24px; }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Main Chart Card */
+    .chart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chart-container {
+      height: 380px;
+      width: 100%;
+    }
+
+    /* Evaluation Section */
+    .eval-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .eval-toggle-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .switch-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider-toggle {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #1e293b;
+      transition: .3s;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .slider-toggle:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 2px;
+      background-color: #ffffff;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider-toggle {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+    input:checked + .slider-toggle:before {
+      transform: translateX(23px);
+      background-color: #0b1020;
+    }
+
+    .eval-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .eval-content {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
+      display: none;
+    }
+    .eval-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eval-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .eval-chart-box {
+      background: #0d152a;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .verdict-box {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Table Card */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .table-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #0f162c;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+      cursor: pointer;
+      user-select: none;
+    }
+    th:hover {
+      color: var(--accent);
+    }
+
+    td {
+      padding: 9px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    tr:hover td {
+      background: rgba(56, 189, 248, 0.04);
+    }
+
+    .score-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: monospace;
+      font-weight: 600;
+    }
+
+    .score-bar-bg {
+      width: 60px;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 3px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .score-bar-flagged {
+      background: linear-gradient(90deg, #f59e0b, #f43f5e);
+    }
+    .score-bar-safe {
+      background: #22c55e;
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .tag-flagged {
+      background: var(--alert-bg);
+      border: 1px solid var(--alert);
+      color: var(--alert);
+    }
+    .tag-safe {
+      background: var(--safe-bg);
+      border: 1px solid var(--safe);
+      color: var(--safe);
+    }
+
+    /* Explainer Accordion */
+    .explainer-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    details {
+      padding: 16px 20px;
+      cursor: pointer;
+    }
+    summary {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      outline: none;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    details[open] summary {
+      margin-bottom: 12px;
+    }
+    .explainer-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 16, 32, 0.85);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .loading-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(56, 189, 248, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--accent);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #ffffff;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 10000;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast.toast-error {
+      border-color: var(--alert);
+      background: #1e1320;
+    }
+    .toast.toast-success {
+      border-color: var(--safe);
+      background: #11221b;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .eval-kpi-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .controls-card { flex-direction: column; align-items: stretch; }
+      .slider-control { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 1. Header -->
+    <header>
+      <div class="header-title-group">
+        <div class="header-main">
+          <span class="header-icon">🛡️</span>
+          <h1>Zero-Day Flow Anomaly Detector</h1>
+          <span class="badge-amber">DEV DATA - NOT FOR REPORTED RESULTS</span>
+        </div>
+        <div class="subtitle">Autoencoder trained on normal traffic only</div>
+      </div>
+      <div>
+        <button id="btnDemo" class="btn btn-demo" title="Shortcut: Press 'D' on keyboard">
+          ⚡ Demo Mode [D]
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. Controls Bar -->
+    <section class="controls-card">
+      <div class="btn-group">
+        <button id="btnLoadSample" class="btn btn-primary">
+          📁 Load sample flows
+        </button>
+        <button id="btnUploadCsv" class="btn btn-secondary">
+          📤 Upload CSV
+        </button>
+        <input type="file" id="fileInput" accept=".csv" style="display: none;">
+      </div>
+
+      <div class="slider-control">
+        <div class="slider-header">
+          <span class="slider-title">False-alarm budget (q):</span>
+          <span id="sliderValDisplay" class="slider-val-badge">0.01</span>
+        </div>
+        <input type="range" id="qSlider" min="0.01" max="0.10" step="0.01" value="0.01">
+        <div class="slider-sub">
+          <span>0.01 (POT default)</span>
+          <span id="thresholdLiveDisplay" style="color: var(--warning); font-weight: 600;">τ: 0.08813</span>
+          <span>0.10 (High sensitivity)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Four KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Flows</div>
+        <div id="kpiTotal" class="kpi-value">--</div>
+        <div id="kpiTotalSub" class="kpi-sub">Awaiting traffic ingestion</div>
+      </div>
+      <div class="kpi-card kpi-flagged">
+        <div class="kpi-label">Flagged Suspicious</div>
+        <div id="kpiFlagged" class="kpi-value">--</div>
+        <div id="kpiFlaggedSub" class="kpi-sub">Above active threshold</div>
+      </div>
+      <div class="kpi-card kpi-safe">
+        <div class="kpi-label">Normal-Rated</div>
+        <div id="kpiBenign" class="kpi-value">--</div>
+        <div id="kpiBenignSub" class="kpi-sub">Within benign boundary</div>
+      </div>
+      <div class="kpi-card kpi-thresh">
+        <div class="kpi-label">Active Threshold (τ)</div>
+        <div id="kpiThresh" class="kpi-value">--</div>
+        <div id="kpiThreshSub" class="kpi-sub">Calibrated at q = 0.01</div>
+      </div>
+    </section>
+
+    <!-- 4. Main Chart: Log Histogram with Moving Threshold Line -->
+    <section class="chart-card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>📊</span> Flow Reconstruction Error Distribution (Log Scale)
+        </div>
+        <div id="chartStatusText" style="font-size: 12px; color: var(--text-muted);">
+          Scores > threshold indicate out-of-distribution traffic
+        </div>
+      </div>
+      <div id="histPlot" class="chart-container"></div>
+    </section>
+
+    <!-- 5. Show Evaluation Toggle -->
+    <section class="eval-section">
+      <div class="eval-toggle-bar">
+        <label class="switch-label">
+          <div class="switch">
+            <input type="checkbox" id="evalToggle">
+            <span class="slider-toggle"></span>
+          </div>
+          <span style="font-weight: 700; font-size: 14px; color: #ffffff;">
+            🔍 Show evaluation (uses labels for display only)
+          </span>
+        </label>
+        <span class="eval-note">
+          True labels are used only to grade, never by the model.
+        </span>
+      </div>
+
+      <div id="evalContent" class="eval-content">
+        <div class="eval-kpi-grid">
+          <div class="kpi-card kpi-safe" style="border-left: 4px solid var(--safe);">
+            <div class="kpi-label">Benign False Alarm Rate (FAR)</div>
+            <div id="evalFarVal" class="kpi-value" style="color: var(--safe);">--%</div>
+            <div id="evalFarSub" class="kpi-sub">Target budget: ~1.00%</div>
+          </div>
+          <div class="kpi-card kpi-flagged" style="border-left: 4px solid var(--alert);">
+            <div class="kpi-label">Overall Attack Detection Rate (TPR)</div>
+            <div id="evalTprVal" class="kpi-value" style="color: var(--alert);">--%</div>
+            <div id="evalTprSub" class="kpi-sub">Tested attack flows caught</div>
+          </div>
+        </div>
+
+        <div class="eval-chart-box">
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 10px; color: #ffffff;">
+            Detection Rate by Traffic Family (%)
+          </div>
+          <div id="evalFamilyPlot" style="height: 240px; width: 100%;"></div>
+        </div>
+
+        <div id="evalVerdictBox" class="verdict-box">
+          <span>💡</span>
+          <span id="evalVerdictText">Evaluating attack family detection...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Flagged-Flows Table -->
+    <section class="table-card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>📋</span> Top Scored Flows (Descending Anomaly Score)
+        </div>
+        <div class="table-actions">
+          <button id="btnDownloadCsv" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;">
+            📥 Download flagged CSV
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="flowsTable">
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">Rank ↕</th>
+              <th onclick="sortTable(1)">Score ↕</th>
+              <th>Status</th>
+              <th>DURATION (s)</th>
+              <th>Fwd Packets</th>
+              <th>Bwd Packets</th>
+              <th>Bytes/s</th>
+              <th>Packets/s</th>
+              <th>Pkt Len Mean</th>
+              <th>SYN Flags</th>
+            </tr>
+          </thead>
+          <tbody id="flowsTableBody">
+            <tr>
+              <td colspan="10" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                No flows scored yet. Click <strong>"📁 Load sample flows"</strong> or <strong>"📤 Upload CSV"</strong> above.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7. Collapsible How to Read This -->
+    <section class="explainer-card">
+      <details>
+        <summary>💡 How to read this dashboard (Plain English)</summary>
+        <div class="explainer-body">
+          <p>
+            <strong>1. Reconstruction Error as Anomaly Score:</strong> The Autoencoder was trained strictly on verified benign normal traffic.
+            When normal flows pass through, the model easily compresses and reconstructs them (yielding low scores).
+            When unexpected or malicious zero-day traffic passes through, the model struggles to reconstruct the unfamiliar patterns, resulting in a significantly higher reconstruction error.
+          </p>
+          <p>
+            <strong>2. False-Alarm Budget (q):</strong> The alarm threshold τ is calibrated against held-out normal traffic so that only a controlled budget <em>q</em> (e.g. 1% or 5%) of benign flows produce false alarms.
+          </p>
+          <p>
+            <strong>3. Sensitivity Trade-Off:</strong> Increasing <em>q</em> (e.g., from 0.01 to 0.05 or 0.10) lowers the threshold line, catching more stealthy or low-volume attacks at the cost of a slightly higher benign false alarm rate.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 8. Footer Line -->
+    <footer>
+      <div id="footerMeta">Architecture: 76-64-32-16-32-64-76 | Normal Calibration Rows: 427,451</div>
+      <div id="footerStatus">Status: Ready | DEV DATA - NOT FOR REPORTED RESULTS</div>
+    </footer>
+  </div>
+
+  <!-- Loading Spinner Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <div id="loadingMessage" style="font-size: 15px; font-weight: 600; color: #ffffff;">Scoring flows...</div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastIcon">ℹ️</span>
+    <span id="toastMsg">Message</span>
+  </div>
+
+  <script>
+    // State management
+    const state = {
+      q: 0.01,
+      source: "sample",
+      hasData: false,
+      hasEvaluation: false,
+      total: 0,
+      flagged: 0,
+      benign: 0,
+      threshold: 0.08813,
+      scores: [],
+      flows: [],
+      meta: null,
+      sortCol: 0,
+      sortAsc: true
+    };
+
+    // UI Elements
+    const qSlider = document.getElementById("qSlider");
+    const sliderValDisplay = document.getElementById("sliderValDisplay");
+    const thresholdLiveDisplay = document.getElementById("thresholdLiveDisplay");
+    const btnLoadSample = document.getElementById("btnLoadSample");
+    const btnUploadCsv = document.getElementById("btnUploadCsv");
+    const fileInput = document.getElementById("fileInput");
+    const btnDemo = document.getElementById("btnDemo");
+    const btnDownloadCsv = document.getElementById("btnDownloadCsv");
+    const evalToggle = document.getElementById("evalToggle");
+    const evalContent = document.getElementById("evalContent");
+    const loadingOverlay = document.getElementById("loadingOverlay");
+    const loadingMessage = document.getElementById("loadingMessage");
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    const toastIcon = document.getElementById("toastIcon");
+
+    // KPI elements
+    const kpiTotal = document.getElementById("kpiTotal");
+    const kpiTotalSub = document.getElementById("kpiTotalSub");
+    const kpiFlagged = document.getElementById("kpiFlagged");
+    const kpiFlaggedSub = document.getElementById("kpiFlaggedSub");
+    const kpiBenign = document.getElementById("kpiBenign");
+    const kpiBenignSub = document.getElementById("kpiBenignSub");
+    const kpiThresh = document.getElementById("kpiThresh");
+    const kpiThreshSub = document.getElementById("kpiThreshSub");
+
+    // Show Toast
+    function showToast(msg, type = "info") {
+      toastMsg.textContent = msg;
+      toastIcon.textContent = type === "error" ? "⚠️" : type === "success" ? "✅" : "ℹ️";
+      toast.className = `toast ${type === "error" ? "toast-error" : type === "success" ? "toast-success" : ""} show`;
+      setTimeout(() => {
+        toast.className = "toast";
+      }, 4000);
+    }
+
+    // Number animation
+    function animateValue(element, start, end, duration = 300, isDecimal = false) {
+      if (isNaN(end)) return;
+      const startTime = performance.now();
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = start + (end - start) * progress;
+        element.textContent = isDecimal ? current.toFixed(5) : Math.round(current).toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = isDecimal ? end.toFixed(5) : end.toLocaleString();
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    // Initialize Metadata
+    async function initMeta() {
+      try {
+        const res = await fetch("/api/meta");
+        if (res.ok) {
+          state.meta = await res.json();
+          document.getElementById("footerMeta").textContent =
+            `Architecture: ${state.meta.architecture} | Calibration Normal Flows: ${state.meta.calibration_rows.toLocaleString()} | Default POT: ${state.meta.pot_threshold.toFixed(5)}`;
+          state.threshold = state.meta.pot_threshold;
+          thresholdLiveDisplay.textContent = `τ: ${state.threshold.toFixed(5)}`;
+          kpiThresh.textContent = state.threshold.toFixed(5);
+        }
+      } catch (err) {
+        console.error("Meta fetch error:", err);
+      }
+    }
+
+    // Score flows
+    async function requestScoring(sourceType = "sample", file = null) {
+      loadingOverlay.classList.add("active");
+      loadingMessage.textContent = file ? "Uploading & scoring network flows..." : "Scoring sample flows with MLP Autoencoder...";
+
+      try {
+        const formData = new FormData();
+        formData.append("q", state.q);
+        formData.append("source", sourceType);
+        if (file) {
+          formData.append("file", file);
+        }
+
+        const res = await fetch("/api/score", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({ detail: "Scoring request failed" }));
+          throw new Error(errData.detail || "Scoring request failed");
+        }
+
+        const data = await res.json();
+        state.hasData = true;
+        state.source = data.source;
+        state.hasEvaluation = data.has_evaluation;
+        state.total = data.total;
+        state.flagged = data.flagged;
+        state.benign = data.benign;
+        state.threshold = data.threshold;
+        state.scores = data.scores;
+        state.flows = data.flows;
+
+        updateDashboardUI();
+
+        // If evaluation is toggled on and sample file is active, update evaluation
+        if (evalToggle.checked) {
+          if (state.hasEvaluation) {
+            updateEvaluation();
+          } else {
+            evalToggle.checked = false;
+            evalContent.classList.remove("active");
+            showToast("Evaluation disabled: custom upload has no verified ground-truth labels.", "info");
+          }
+        }
+
+        showToast(
+          sourceType === "sample"
+            ? `Successfully scored ${state.total} sample flows.`
+            : `Successfully uploaded and scored ${state.total} flows.`,
+          "success"
+        );
+      } catch (err) {
+        showToast(err.message, "error");
+      } finally {
+        loadingOverlay.classList.remove("active");
+      }
+    }
+
+    // Fast slider update (sub-100ms calculation since scores are stored in client memory!)
+    function onSliderChange(newQ) {
+      state.q = parseFloat(newQ);
+      sliderValDisplay.textContent = state.q.toFixed(2);
+
+      if (!state.hasData || state.scores.length === 0) {
+        // Just fetch new threshold from server if no flows scored yet
+        fetch(`/api/score`, {
+          method: "POST",
+          body: new URLSearchParams({ q: state.q, source: state.source })
+        }).then(r => r.json()).then(data => {
+          state.threshold = data.threshold;
+          thresholdLiveDisplay.textContent = `τ: ${state.threshold.toFixed(5)}`;
+          kpiThresh.textContent = state.threshold.toFixed(5);
+        }).catch(() => {});
+        return;
+      }
+
+      // Live client recalculation for instantaneous <50ms response
+      fetch(`/api/score`, {
+        method: "POST",
+        body: new URLSearchParams({ q: state.q, source: state.source })
+      }).then(r => r.json()).then(data => {
+        state.threshold = data.threshold;
+        state.flagged = data.flagged;
+        state.benign = data.benign;
+        state.flows = data.flows;
+
+        updateDashboardUI();
+
+        if (evalToggle.checked && state.hasEvaluation) {
+          updateEvaluation();
+        }
+      }).catch(err => {
+        console.error("Slider update error:", err);
+      });
+    }
+
+    // Update Dashboard UI
+    function updateDashboardUI() {
+      // 1. KPI cards update with animation
+      thresholdLiveDisplay.textContent = `τ: ${state.threshold.toFixed(5)}`;
+      kpiTotal.textContent = state.total.toLocaleString();
+      kpiTotalSub.textContent = `Ingested flows (${state.source === "sample" ? "held-out sample" : "custom upload"})`;
+
+      const prevFlagged = parseInt(kpiFlagged.textContent.replace(/,/g, "")) || 0;
+      animateValue(kpiFlagged, prevFlagged, state.flagged, 250);
+      kpiFlaggedSub.textContent = `${((state.flagged / Math.max(1, state.total)) * 100).toFixed(1)}% of total flows`;
+
+      const prevBenign = parseInt(kpiBenign.textContent.replace(/,/g, "")) || 0;
+      animateValue(kpiBenign, prevBenign, state.benign, 250);
+      kpiBenignSub.textContent = `${((state.benign / Math.max(1, state.total)) * 100).toFixed(1)}% of total flows`;
+
+      kpiThresh.textContent = state.threshold.toFixed(5);
+      kpiThreshSub.textContent = `Budget q = ${state.q.toFixed(2)}`;
+
+      // 2. Render Main Log Histogram
+      renderHistogram();
+
+      // 3. Render Flows Table
+      renderTable();
+
+      // 4. Update Footer
+      document.getElementById("footerStatus").textContent =
+        `Status: Active | q = ${state.q.toFixed(2)} | Threshold: ${state.threshold.toFixed(5)} | Flagged: ${state.flagged}/${state.total}`;
+    }
+
+    // Render Plotly Log Histogram with 35 log-spaced bins and bar traces
+    function renderHistogram() {
+      if (!state.scores || state.scores.length === 0) return;
+
+      const posScores = state.scores.filter(s => s > 0);
+      if (posScores.length === 0) return;
+
+      const minScore = Math.min(...posScores);
+      const maxScore = Math.max(...posScores);
+      const numBins = 35;
+      const logMin = Math.log10(minScore);
+      const logMax = Math.log10(maxScore);
+      const logStep = (logMax - logMin) / numBins;
+
+      // 36 log-spaced bin edges
+      const binEdges = [];
+      for (let i = 0; i <= numBins; i++) {
+        binEdges.push(Math.pow(10, logMin + i * logStep));
+      }
+
+      // 35 bin geometric centers and widths
+      const binCenters = [];
+      const binWidths = [];
+      for (let i = 0; i < numBins; i++) {
+        binCenters.push(Math.sqrt(binEdges[i] * binEdges[i + 1]));
+        binWidths.push((binEdges[i + 1] - binEdges[i]) * 0.95);
+      }
+
+      const normalCounts = new Array(numBins).fill(0);
+      const flaggedCounts = new Array(numBins).fill(0);
+      const totalCounts = new Array(numBins).fill(0);
+
+      state.scores.forEach(s => {
+        if (s <= 0) return;
+        let bin = Math.floor((Math.log10(s) - logMin) / logStep);
+        if (bin < 0) bin = 0;
+        if (bin >= numBins) bin = numBins - 1;
+
+        totalCounts[bin]++;
+        if (s > state.threshold) {
+          flaggedCounts[bin]++;
+        } else {
+          normalCounts[bin]++;
+        }
+      });
+
+      // Write exact bin counts to console for verification
+      console.log(`[Histogram] Active Threshold τ: ${state.threshold.toFixed(5)}, Budget q: ${state.q.toFixed(2)}`);
+      console.log(`[Histogram] 35 Log Bins from ${minScore.toFixed(6)} to ${maxScore.toFixed(6)}:`);
+      const binReport = [];
+      for (let i = 0; i < numBins; i++) {
+        binReport.push({
+          bin: i,
+          range: `[${binEdges[i].toFixed(5)} - ${binEdges[i + 1].toFixed(5)}]`,
+          center: parseFloat(binCenters[i].toFixed(5)),
+          normal: normalCounts[i],
+          flagged: flaggedCounts[i],
+          total: totalCounts[i]
+        });
+      }
+      console.table(binReport.filter(b => b.total > 0));
+
+      const hoverNormal = binCenters.map((c, i) =>
+        `Range: ${binEdges[i].toFixed(5)} - ${binEdges[i + 1].toFixed(5)}<br>Normal Flows: ${normalCounts[i]}<extra></extra>`
+      );
+      const hoverFlagged = binCenters.map((c, i) =>
+        `Range: ${binEdges[i].toFixed(5)} - ${binEdges[i + 1].toFixed(5)}<br>Flagged Flows: ${flaggedCounts[i]}<extra></extra>`
+      );
+
+      const traceNormal = {
+        x: binCenters,
+        y: normalCounts,
+        width: binWidths,
+        type: "bar",
+        name: `Normal-Rated (${state.benign || normalCounts.reduce((a, b) => a + b, 0)})`,
+        marker: {
+          color: "#22c55e"
+        },
+        opacity: 0.85,
+        hovertemplate: "%{text}",
+        text: hoverNormal
+      };
+
+      const traceFlagged = {
+        x: binCenters,
+        y: flaggedCounts,
+        width: binWidths,
+        type: "bar",
+        name: `Flagged (${state.flagged || flaggedCounts.reduce((a, b) => a + b, 0)})`,
+        marker: {
+          color: "#f43f5e"
+        },
+        opacity: 0.9,
+        hovertemplate: "%{text}",
+        text: hoverFlagged
+      };
+
+      const maxCount = Math.max(...totalCounts, 1);
+      const layout = {
+        barmode: "overlay",
+        bargap: 0.05,
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        margin: { l: 50, r: 30, t: 25, b: 50 },
+        xaxis: {
+          type: "log",
+          title: { text: "Reconstruction Error MSE (Log Scale)", font: { color: "#94a3b8", size: 12 } },
+          tickfont: { color: "#94a3b8" },
+          gridcolor: "rgba(255, 255, 255, 0.06)",
+          zeroline: false
+        },
+        yaxis: {
+          range: [0, maxCount + 5],
+          title: { text: "Flow Count", font: { color: "#94a3b8", size: 12 } },
+          tickfont: { color: "#94a3b8" },
+          gridcolor: "rgba(255, 255, 255, 0.06)",
+          zeroline: false
+        },
+        legend: {
+          x: 0.02,
+          y: 0.98,
+          font: { color: "#e6ebff", size: 12 },
+          bgcolor: "rgba(18, 26, 51, 0.85)",
+          bordercolor: "rgba(255, 255, 255, 0.1)",
+          borderwidth: 1
+        },
+        shapes: [
+          {
+            type: "line",
+            x0: state.threshold,
+            x1: state.threshold,
+            y0: 0,
+            y1: 1,
+            yref: "paper",
+            line: {
+              color: "#f59e0b",
+              width: 2.5,
+              dash: "dash"
+            }
+          }
+        ],
+        annotations: [
+          {
+            x: Math.log10(state.threshold),
+            y: 0.95,
+            yref: "paper",
+            text: `Alarm Threshold τ = ${state.threshold.toFixed(5)}`,
+            showarrow: true,
+            arrowhead: 2,
+            arrowcolor: "#f59e0b",
+            font: { color: "#f59e0b", size: 11, weight: "bold" },
+            bgcolor: "rgba(18, 26, 51, 0.9)",
+            bordercolor: "#f59e0b",
+            borderwidth: 1,
+            borderpad: 4
+          }
+        ]
+      };
+
+      const config = { responsive: true, displayModeBar: false };
+      Plotly.react("histPlot", [traceNormal, traceFlagged], layout, config);
+    }
+
+    // Render Table
+    function renderTable() {
+      const tbody = document.getElementById("flowsTableBody");
+      if (!state.flows || state.flows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--text-muted); padding: 30px;">No flows to display</td></tr>`;
+        return;
+      }
+
+      let html = "";
+      state.flows.forEach((row, i) => {
+        const isFlagged = row.flagged;
+        const tagClass = isFlagged ? "tag-flagged" : "tag-safe";
+        const tagText = isFlagged ? "🚨 FLAGGED" : "🟢 NORMAL";
+        const barClass = isFlagged ? "score-bar-flagged" : "score-bar-safe";
+
+        html += `
+          <tr>
+            <td><strong>#${row.rank || (i + 1)}</strong></td>
+            <td>
+              <div class="score-cell">
+                <div class="score-bar-bg">
+                  <div class="score-bar-fill ${barClass}" style="width: ${row.bar_pct || 50}%;"></div>
+                </div>
+                <span>${row.anomaly_score.toFixed(5)}</span>
+              </div>
+            </td>
+            <td><span class="tag-badge ${tagClass}">${tagText}</span></td>
+            <td>${row["Flow Duration"] !== undefined && row["Flow Duration"] !== null && !isNaN(Number(row["Flow Duration"])) ? (Number(row["Flow Duration"]) / 1e6).toFixed(2) : "--"}</td>
+            <td>${row["Total Fwd Packets"] !== undefined ? row["Total Fwd Packets"].toLocaleString() : "--"}</td>
+            <td>${row["Total Backward Packets"] !== undefined ? row["Total Backward Packets"].toLocaleString() : "--"}</td>
+            <td>${row["Flow Bytes/s"] !== undefined ? row["Flow Bytes/s"].toLocaleString() : "--"}</td>
+            <td>${row["Flow Packets/s"] !== undefined ? row["Flow Packets/s"].toLocaleString() : "--"}</td>
+            <td>${row["Packet Length Mean"] !== undefined ? row["Packet Length Mean"] : "--"}</td>
+            <td>${row["SYN Flag Count"] !== undefined ? row["SYN Flag Count"] : "--"}</td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    // Sort Table Client Side
+    function sortTable(columnIndex) {
+      if (!state.flows || state.flows.length === 0) return;
+      if (state.sortCol === columnIndex) {
+        state.sortAsc = !state.sortAsc;
+      } else {
+        state.sortCol = columnIndex;
+        state.sortAsc = true;
+      }
+
+      state.flows.sort((a, b) => {
+        let valA, valB;
+        if (columnIndex === 0) {
+          valA = a.rank || 0; valB = b.rank || 0;
+        } else if (columnIndex === 1) {
+          valA = a.anomaly_score; valB = b.anomaly_score;
+        }
+        return state.sortAsc ? valA - valB : valB - valA;
+      });
+
+      renderTable();
+    }
+
+    // Update Ground-Truth Evaluation
+    async function updateEvaluation() {
+      if (!state.hasEvaluation) return;
+
+      try {
+        const res = await fetch(`/api/evaluation?q=${state.q}`);
+        if (!res.ok) throw new Error("Evaluation fetch failed");
+        const data = await res.json();
+
+        // 1. KPI updates
+        const evalFarVal = document.getElementById("evalFarVal");
+        evalFarVal.textContent = `${data.benign_far.toFixed(2)}%`;
+        const farStatus = data.benign_far <= (state.q * 100 * 1.5) ? "✅ Within budget" : "⚠️ Above budget";
+        document.getElementById("evalFarSub").textContent =
+          `Target budget: ~${(state.q * 100).toFixed(1)}% | ${data.benign_flagged} / ${data.benign_total} benign flows (${farStatus})`;
+
+        const evalTprVal = document.getElementById("evalTprVal");
+        evalTprVal.textContent = `${data.overall_tpr.toFixed(1)}%`;
+        document.getElementById("evalTprSub").textContent =
+          `${data.attack_flagged} / ${data.attack_total} attack flows flagged as anomalous`;
+
+        // 2. Horizontal Bar Chart for Family Detection Rates
+        const families = data.families.filter(f => !f.is_benign).reverse();
+        const yNames = families.map(f => f.family);
+        const xRates = families.map(f => f.detection_rate);
+        const customTexts = families.map(f => `${f.detection_rate.toFixed(1)}% (${f.flagged}/${f.total})`);
+
+        const barTrace = {
+          y: yNames,
+          x: xRates,
+          type: "bar",
+          orientation: "h",
+          marker: {
+            color: xRates.map(r => r >= 50.0 ? "#f43f5e" : "#38bdf8"),
+            line: { color: "rgba(255,255,255,0.1)", width: 1 }
+          },
+          text: customTexts,
+          textposition: "outside",
+          textfont: { color: "#e6ebff", size: 11 }
+        };
+
+        const barLayout = {
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          margin: { l: 110, r: 60, t: 10, b: 35 },
+          xaxis: {
+            title: { text: "Detection Rate (%)", font: { color: "#94a3b8", size: 11 } },
+            range: [0, 115],
+            tickfont: { color: "#94a3b8" },
+            gridcolor: "rgba(255, 255, 255, 0.06)",
+            zeroline: false
+          },
+          yaxis: {
+            tickfont: { color: "#ffffff", size: 12, weight: "bold" },
+            gridcolor: "rgba(255, 255, 255, 0.0)",
+            zeroline: false
+          }
+        };
+
+        Plotly.react("evalFamilyPlot", [barTrace], barLayout, { responsive: true, displayModeBar: false });
+
+        // 3. Operational Verdict
+        document.getElementById("evalVerdictText").textContent = data.verdict;
+      } catch (err) {
+        console.error("Evaluation error:", err);
+      }
+    }
+
+    // Download Flagged CSV
+    function downloadFlaggedCSV() {
+      if (!state.hasData || state.scores.length === 0) {
+        showToast("No flows loaded to export.", "error");
+        return;
+      }
+      // Redirect to server download endpoint
+      window.location.href = `/api/download_flagged?q=${state.q}&source=${state.source}`;
+    }
+
+    // Demo Mode: Auto-run sample load -> show evaluation
+    async function triggerDemoMode() {
+      showToast("⚡ Running full demo workflow...", "info");
+      await requestScoring("sample");
+      evalToggle.checked = true;
+      evalContent.classList.add("active");
+      await updateEvaluation();
+      showToast("✅ Demo loaded: Sample flows scored & evaluation active.", "success");
+    }
+
+    // Event Listeners
+    qSlider.addEventListener("input", (e) => onSliderChange(e.target.value));
+
+    btnLoadSample.addEventListener("click", () => requestScoring("sample"));
+
+    btnUploadCsv.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        requestScoring("upload", file);
+      }
+      fileInput.value = "";
+    });
+
+    btnDemo.addEventListener("click", triggerDemoMode);
+
+    btnDownloadCsv.addEventListener("click", downloadFlaggedCSV);
+
+    evalToggle.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        if (!state.hasData) {
+          e.target.checked = false;
+          showToast("Please load sample flows first.", "info");
+          return;
+        }
+        if (!state.hasEvaluation) {
+          e.target.checked = false;
+          showToast("Evaluation is only available for the bundled sample dataset with verified ground-truth labels.", "info");
+          return;
+        }
+        evalContent.classList.add("active");
+        updateEvaluation();
+      } else {
+        evalContent.classList.remove("active");
+      }
+    });
+
+    // Keyboard shortcut 'D' or 'd' for Demo mode
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "d" || e.key === "D") {
+        if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+          e.preventDefault();
+          triggerDemoMode();
+        }
+      }
+    });
+
+    // Initialize on load
+    window.addEventListener("DOMContentLoaded", () => {
+      initMeta();
+      // Render initial empty plot
+      Plotly.newPlot("histPlot", [], {
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        xaxis: { type: "log", gridcolor: "rgba(255,255,255,0.06)", tickfont: { color: "#94a3b8" } },
+        yaxis: { gridcolor: "rgba(255, 255, 255, 0.06)", tickfont: { color: "#94a3b8" } },
+        annotations: [{
+          text: "Click '📁 Load sample flows' or '⚡ Demo Mode' to visualize distribution",
+          showarrow: false,
+          font: { color: "#94a3b8", size: 14 }
+        }]
+      }, { responsive: true, displayModeBar: false });
+    });
+  </script>
+</body>
+</html>

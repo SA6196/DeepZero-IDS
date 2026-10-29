@@ -1,0 +1,73 @@
+# Protocol P4: Contamination Robustness Experiment
+# Source: SPEC.md Section 3, 4, 5 & User Request PART A, PART B, PART C
+# "DEV DATA, NOT FOR REPORTED RESULTS"
+
+experiment:
+  name: "p4_contamination_experiment"
+  seed: 0
+  status: "DEV DATA, NOT FOR REPORTED RESULTS"
+  device: "cpu"
+  max_threads: 4
+
+dataset:
+  name: "cicids2017_cleaned_dev"
+  cleaned_path: "data/processed/cicids2017_cleaned_dev.parquet"
+  schema_config: "configs/schema_cicids2017.yaml"
+  attack_family_config: "configs/attack_families_cicids2017.yaml"
+
+protocol:
+  name: "P4"
+  n_train_total: 200000
+  contamination_levels:
+    - 0.0
+    - 0.01
+    - 0.02
+    - 0.05
+    - 0.10
+  target_families:
+    - "BruteForce"
+    - "PortScan"
+    - "WebAttack"
+  val_benign_ratio: 0.2
+  test_benign_ratio: 0.2
+  include_test_family: false
+
+preprocessing:
+  skew_threshold: 3.0
+  sentinel_columns:
+    - "Init_Win_bytes_forward"
+    - "Init_Win_bytes_backward"
+
+models:
+  pca:
+    n_components: 16
+    random_state: 0
+
+  isolation_forest:
+    n_estimators: 100
+    max_samples: "auto"
+    contamination: "auto"
+    random_state: 0
+    n_jobs: 4
+
+  autoencoder:
+    hidden_dims: [64, 32]
+    bottleneck_dim: 16
+    lr: 0.001
+    batch_size: 1024
+    max_epochs: 30
+    patience: 3
+
+  trimmed_autoencoder:
+    hidden_dims: [64, 32]
+    bottleneck_dim: 16
+    lr: 0.001
+    batch_size: 1024
+    max_epochs: 30
+    patience: 3
+    trim_frac: 0.05
+    warmup_epochs: 2
+
+output:
+  results_dir: "results"
+  figures_dir: "results/figures"

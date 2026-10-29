@@ -1,0 +1,1046 @@
+[
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 2.52,
+    "auroc": 0.612745,
+    "auprc": 0.007634,
+    "fpr_at_95_tpr": 0.631623,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 58.89,
+    "auroc": 0.375146,
+    "auprc": 0.003483,
+    "fpr_at_95_tpr": 0.996315,
+    "tpr_at_1_fpr": 0.01386,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 39.17,
+    "auroc": 0.488977,
+    "auprc": 0.004973,
+    "fpr_at_95_tpr": 0.944335,
+    "tpr_at_1_fpr": 0.000513,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 0.58,
+    "auroc": 0.713418,
+    "auprc": 0.007162,
+    "fpr_at_95_tpr": 0.431551,
+    "tpr_at_1_fpr": 0.00616,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 143.08,
+    "auroc": 0.619657,
+    "auprc": 0.007459,
+    "fpr_at_95_tpr": 0.910607,
+    "tpr_at_1_fpr": 0.00616,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Botnet",
+    "is_unreliable": false,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 1948,
+    "attack_prevalence": 0.00453657,
+    "runtime_seconds": 108.19,
+    "auroc": 0.670263,
+    "auprc": 0.009589,
+    "fpr_at_95_tpr": 0.878351,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 2.6,
+    "auroc": 0.826795,
+    "auprc": 0.060863,
+    "fpr_at_95_tpr": 0.331236,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 57.71,
+    "auroc": 0.494298,
+    "auprc": 0.018769,
+    "fpr_at_95_tpr": 0.635331,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 45.52,
+    "auroc": 0.850697,
+    "auprc": 0.187269,
+    "fpr_at_95_tpr": 0.437145,
+    "tpr_at_1_fpr": 0.438579,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 0.81,
+    "auroc": 0.841435,
+    "auprc": 0.06089,
+    "fpr_at_95_tpr": 0.237625,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 126.93,
+    "auroc": 0.887326,
+    "auprc": 0.092496,
+    "fpr_at_95_tpr": 0.170546,
+    "tpr_at_1_fpr": 0.000219,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "BruteForce",
+    "is_unreliable": false,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 9150,
+    "attack_prevalence": 0.02095735,
+    "runtime_seconds": 110.52,
+    "auroc": 0.891598,
+    "auprc": 0.179627,
+    "fpr_at_95_tpr": 0.202182,
+    "tpr_at_1_fpr": 0.323169,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 5.61,
+    "auroc": 0.931703,
+    "auprc": 0.847406,
+    "fpr_at_95_tpr": 0.272015,
+    "tpr_at_1_fpr": 0.012804,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 158.82,
+    "auroc": 0.921316,
+    "auprc": 0.92941,
+    "fpr_at_95_tpr": 0.563255,
+    "tpr_at_1_fpr": 0.765917,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 108.19,
+    "auroc": 0.943345,
+    "auprc": 0.872207,
+    "fpr_at_95_tpr": 0.140919,
+    "tpr_at_1_fpr": 0.012326,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 1.28,
+    "auroc": 0.963213,
+    "auprc": 0.957929,
+    "fpr_at_95_tpr": 0.196956,
+    "tpr_at_1_fpr": 0.741666,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 1638.76,
+    "auroc": 0.98847,
+    "auprc": 0.986228,
+    "fpr_at_95_tpr": 0.062063,
+    "tpr_at_1_fpr": 0.846052,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "DoS/DDoS",
+    "is_unreliable": false,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 321770,
+    "attack_prevalence": 0.42947275,
+    "runtime_seconds": 302.83,
+    "auroc": 0.985965,
+    "auprc": 0.983599,
+    "fpr_at_95_tpr": 0.067856,
+    "tpr_at_1_fpr": 0.800559,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 4.62,
+    "auroc": 0.950841,
+    "auprc": 0.090976,
+    "fpr_at_95_tpr": 0.494202,
+    "tpr_at_1_fpr": 0.611111,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 85.52,
+    "auroc": 0.90022,
+    "auprc": 0.010336,
+    "fpr_at_95_tpr": 0.74293,
+    "tpr_at_1_fpr": 0.444444,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 101.25,
+    "auroc": 0.769452,
+    "auprc": 0.000291,
+    "fpr_at_95_tpr": 0.624008,
+    "tpr_at_1_fpr": 0.027778,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 0.63,
+    "auroc": 0.960871,
+    "auprc": 0.033652,
+    "fpr_at_95_tpr": 0.1366,
+    "tpr_at_1_fpr": 0.361111,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 250.9,
+    "auroc": 0.971393,
+    "auprc": 0.006282,
+    "fpr_at_95_tpr": 0.05664,
+    "tpr_at_1_fpr": 0.555556,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "Infiltration",
+    "is_unreliable": true,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 36,
+    "attack_prevalence": 8.421e-05,
+    "runtime_seconds": 272.89,
+    "auroc": 0.962951,
+    "auprc": 0.020439,
+    "fpr_at_95_tpr": 0.058269,
+    "tpr_at_1_fpr": 0.555556,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 5.68,
+    "auroc": 0.659586,
+    "auprc": 0.220442,
+    "fpr_at_95_tpr": 0.432003,
+    "tpr_at_1_fpr": 0.000673,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 119.93,
+    "auroc": 0.698601,
+    "auprc": 0.243402,
+    "fpr_at_95_tpr": 0.530377,
+    "tpr_at_1_fpr": 0.001422,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 123.28,
+    "auroc": 0.983887,
+    "auprc": 0.825376,
+    "fpr_at_95_tpr": 0.035667,
+    "tpr_at_1_fpr": 0.161367,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 0.76,
+    "auroc": 0.92046,
+    "auprc": 0.532564,
+    "fpr_at_95_tpr": 0.112642,
+    "tpr_at_1_fpr": 0.000827,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 247.88,
+    "auroc": 0.928664,
+    "auprc": 0.560744,
+    "fpr_at_95_tpr": 0.109552,
+    "tpr_at_1_fpr": 0.004587,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "PortScan",
+    "is_unreliable": false,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 90694,
+    "attack_prevalence": 0.17503595,
+    "runtime_seconds": 202.12,
+    "auroc": 0.906169,
+    "auprc": 0.502381,
+    "fpr_at_95_tpr": 0.177309,
+    "tpr_at_1_fpr": 0.004587,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "Isolation Forest",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 2.59,
+    "auroc": 0.816378,
+    "auprc": 0.014604,
+    "fpr_at_95_tpr": 0.56194,
+    "tpr_at_1_fpr": 0.0,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "One-Class SVM",
+    "n_train": 20000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 85.79,
+    "auroc": 0.575158,
+    "auprc": 0.006004,
+    "fpr_at_95_tpr": 0.473605,
+    "tpr_at_1_fpr": 0.043864,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "LOF",
+    "n_train": 50000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 102.3,
+    "auroc": 0.949063,
+    "auprc": 0.125617,
+    "fpr_at_95_tpr": 0.28137,
+    "tpr_at_1_fpr": 0.0014,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "PCA",
+    "n_train": 200000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 0.74,
+    "auroc": 0.762524,
+    "auprc": 0.010733,
+    "fpr_at_95_tpr": 0.591385,
+    "tpr_at_1_fpr": 0.043864,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "Autoencoder",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 297.02,
+    "auroc": 0.794436,
+    "auprc": 0.013063,
+    "fpr_at_95_tpr": 0.854304,
+    "tpr_at_1_fpr": 0.007933,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  },
+  {
+    "experiment": "p1_lofo_baselines_and_autoencoders",
+    "protocol": "P1",
+    "seed": 0,
+    "status": "DEV DATA, NOT FOR REPORTED RESULTS",
+    "family": "WebAttack",
+    "is_unreliable": false,
+    "model": "VAE",
+    "n_train": 500000,
+    "n_test_benign": 427451,
+    "n_test_attack": 2143,
+    "attack_prevalence": 0.00498843,
+    "runtime_seconds": 214.71,
+    "auroc": 0.740777,
+    "auprc": 0.010161,
+    "fpr_at_95_tpr": 0.878994,
+    "tpr_at_1_fpr": 0.014932,
+    "speed_caps": {
+      "train_rows": {
+        "isolation_forest": 200000,
+        "pca": 200000,
+        "lof": 50000,
+        "ocsvm": 20000,
+        "autoencoder": 500000,
+        "vae": 500000
+      },
+      "test_benign_rows": null
+    }
+  }
+]

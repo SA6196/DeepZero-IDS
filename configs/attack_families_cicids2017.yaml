@@ -1,0 +1,63 @@
+# CIC-IDS2017 raw label to canonical attack family mapping
+# Source: SPEC.md Section 3 (P1 LOFO evaluation families)
+
+label_mapping:
+  # Benign
+  "BENIGN": "Benign"
+  "benign": "Benign"
+
+  # Brute Force
+  "FTP-Patator": "BruteForce"
+  "SSH-Patator": "BruteForce"
+  "ftp-patator": "BruteForce"
+  "ssh-patator": "BruteForce"
+
+  # DoS / DDoS
+  "DoS slowloris": "DoS/DDoS"
+  "DoS Slowhttptest": "DoS/DDoS"
+  "DoS Hulk": "DoS/DDoS"
+  "DoS GoldenEye": "DoS/DDoS"
+  "Heartbleed": "DoS/DDoS"
+  "DDoS": "DoS/DDoS"
+  "dos slowloris": "DoS/DDoS"
+  "dos slowhttptest": "DoS/DDoS"
+  "dos hulk": "DoS/DDoS"
+  "dos goldeneye": "DoS/DDoS"
+  "heartbleed": "DoS/DDoS"
+  "ddos": "DoS/DDoS"
+
+  # PortScan
+  "PortScan": "PortScan"
+  "portscan": "PortScan"
+
+  # Web Attacks (including raw replacement character \uFFFD and normalized variants)
+  "Web Attack \uFFFD Brute Force": "WebAttack"
+  "Web Attack – Brute Force": "WebAttack"
+  "Web Attack - Brute Force": "WebAttack"
+  "web attack \uFFFD brute force": "WebAttack"
+  "web attack – brute force": "WebAttack"
+  "web attack - brute force": "WebAttack"
+
+  "Web Attack \uFFFD XSS": "WebAttack"
+  "Web Attack – XSS": "WebAttack"
+  "Web Attack - XSS": "WebAttack"
+  "web attack \uFFFD xss": "WebAttack"
+  "web attack – xss": "WebAttack"
+  "web attack - xss": "WebAttack"
+
+  "Web Attack \uFFFD Sql Injection": "WebAttack"
+  "Web Attack – Sql Injection": "WebAttack"
+  "Web Attack - Sql Injection": "WebAttack"
+  "web attack \uFFFD sql injection": "WebAttack"
+  "web attack – sql injection": "WebAttack"
+  "web attack - sql injection": "WebAttack"
+
+  # Botnet
+  "Bot": "Botnet"
+  "bot": "Botnet"
+
+  # Infiltration
+  "Infiltration": "Infiltration"
+  "infiltration": "Infiltration"
+  "Infilteration": "Infiltration"
+  "infilteration": "Infiltration"
